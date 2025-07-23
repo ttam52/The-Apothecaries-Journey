@@ -38,7 +38,7 @@ public class deck_script
         return deck[rear];
     }
 
-    private bool is_empty()
+    public bool is_empty()
     {
         if (front == -1)
         {
@@ -47,7 +47,7 @@ public class deck_script
         return false;
     }
 
-    private bool is_full()
+    public bool is_full()
     {
         if (front == (rear + 1) % capacity)
         {
