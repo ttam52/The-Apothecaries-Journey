@@ -14,7 +14,6 @@ public class sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
     }
 
@@ -27,6 +26,10 @@ public class sc : MonoBehaviour
     private void OnMouseExit()
     {
         transform.position -= selected;
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
 }

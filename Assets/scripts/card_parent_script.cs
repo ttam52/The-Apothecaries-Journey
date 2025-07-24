@@ -1,7 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class card_parent
 {
+    GameObject card_obj;
     int healing_value = 0;
     string card_name = "";
 
@@ -9,6 +11,7 @@ public class card_parent
     {
         healing_value = value;
         card_name = name;
+
     }
 
     public int get_value()
@@ -18,6 +21,15 @@ public class card_parent
     public string get_name()
     { 
         return card_name;
+    }
+
+    public void set_card_obj(GameObject obj)
+    {
+        card_obj = obj;
+    }
+    public GameObject get_card_obj()
+    {
+        return card_obj;
     }
 
 }
