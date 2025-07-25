@@ -6,12 +6,11 @@ using UnityEngine.Rendering;
 public class deck : MonoBehaviour
 {
     public GameObject obj;
-
-    deck_script main_deck = new deck_script(5);
-    card_sorter display = new card_sorter(100, 10);
+    public card_sorter display = new card_sorter(100, 10);
 
     private card_parent current_card;
 
+    deck_script main_deck = new deck_script(5);
     Camera main = new Camera();
     Vector3 spawn;
     float flag;
