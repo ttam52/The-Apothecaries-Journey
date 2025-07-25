@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4565603840703206390}
   - component: {fileID: 73758132267927951}
   m_Layer: 0
-  m_Name: Deck
+  m_Name: card_management
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
