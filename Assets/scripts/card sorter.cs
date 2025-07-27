@@ -20,14 +20,18 @@ public class card_sorter
         return display[card_pos];
     }
 
-    public void add_to_display(card_parent input)
+    public void add(card_parent input)
     {
         if (position < capacity)
         {
             display[position] = input;
             position++;
         }
-        
+    }
+
+    public void clear_display()
+    {
+        display = null;
     }
 
     public float[] card_spacing()

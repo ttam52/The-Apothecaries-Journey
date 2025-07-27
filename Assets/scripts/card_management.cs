@@ -41,7 +41,7 @@ public class deck : MonoBehaviour
         {
 
             print(main_deck.get_front());
-            display.add_to_display(main_deck.dequeue());
+            display.add(main_deck.dequeue());
             
             for (int i = 0; i < display.card_spacing().Count(); i++)
             {
