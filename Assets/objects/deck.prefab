@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 73758132267927951}
   - component: {fileID: 1678508051309417606}
   m_Layer: 0
-  m_Name: card_management
+  m_Name: deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7638575097921380242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.99, y: -3.03, z: -0.039725237}
+  m_LocalPosition: {x: 5.99, y: -3.03, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -147,4 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acfc1da5b9ac62469f6eea417ea5f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
+  obj: {fileID: 4098763975536889711, guid: ef5f72b3f44219c48a39dd1a6333360b, type: 3}
+  score_manager: {fileID: 6775916976880748624, guid: 082cff3110cbbef4d8149af16d36e6db, type: 3}
