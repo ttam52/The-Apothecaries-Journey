@@ -1,70 +1,59 @@
+using System;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class deck : MonoBehaviour
+public class card_management : MonoBehaviour
 {
-    public GameObject obj;
-    public card_sorter display = new card_sorter(100, 10);
+    public GameObject card_obj;
+    public GameObject score_manager;
+    public GameObject deck;
+    
+    card_sorter playing_area = new card_sorter(100, 10);
+    Score_display score_display;
 
-    private card_parent current_card;
-
-    deck_script main_deck = new deck_script(5);
-    Camera main = new Camera();
-    Vector3 spawn;
-    float flag;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        main_deck.enqueue(new card_parent(0, "a"));
-        main_deck.enqueue(new card_parent(0, "b"));
-        main_deck.enqueue(new card_parent(0, "c"));
-        main_deck.enqueue(new card_parent(0, "d"));
-        main_deck.enqueue(new card_parent(0, "e"));
-
-        main = Camera.main;
-        spawn = main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, main.nearClipPlane));
-        spawn.z = 0;
+        score_display = score_manager.GetComponent<Score_display>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void card_drawn(card_parent card)
     {
-        
+        playing_area.add(card);
+        score_display.Add(card.get_value());
+
+        clear_playing_area();
+        set_playing_area(card);
     }
 
-    private void OnMouseDown()
+    public void set_playing_area(card_parent card)
     {
-        
-        if (main_deck.is_empty() != true)
+        Vector3 spawn = transform.position;
+
+        for (int i = 0; i < playing_area.card_spacing().Count(); i++)
         {
+            card = playing_area.get_card(i);
 
-            print(main_deck.get_front());
-            display.add_to_display(main_deck.dequeue());
-            
-            for (int i = 0; i < display.card_spacing().Count(); i++)
-            {
-                current_card = display.get_card(i);
+            float x_offset = playing_area.card_spacing()[i];
+            spawn.x = transform.position.x + x_offset;
 
-                flag = display.card_spacing()[i];
-                print(flag);
+            card.set_card_obj(Instantiate(card_obj, spawn, Quaternion.identity));
 
-                spawn.x = flag;
-                current_card.set_card_obj(Instantiate(obj, spawn, Quaternion.identity));
-            }
-        }
-        
-
-
-    }
-
-    private void OnMouseUp()
-    {
-        for (int i = 0; i < display.card_spacing().Count(); i++)
-        {
-            current_card = display.get_card(i);
-            Destroy(current_card.get_card_obj());
         }
     }
+
+    public void clear_playing_area()
+    {
+        int card_total = playing_area.card_spacing().Count();
+        for (int i = 0; i < card_total; i++)
+        {
+            card_parent card = playing_area.get_card(i);
+            Destroy(card.get_card_obj());
+        }
+    }
+
+    public void update_score()
+    { 
+        
+    }
+
 }
