@@ -34,7 +34,7 @@ public class deck : MonoBehaviour
 
     public card_parent draw_card()
     {
-        if (!main_deck.is_full())
+        if (!main_deck.is_empty())
         {
             return main_deck.dequeue();
         }
