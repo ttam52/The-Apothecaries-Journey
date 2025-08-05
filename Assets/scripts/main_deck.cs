@@ -16,10 +16,12 @@ public class deck : MonoBehaviour
         c_m = card_manager.GetComponent<card_management>();
 
         main_deck.enqueue(new card_parent(1, "a"));
-        main_deck.enqueue(new card_parent(1, "b"));
-        main_deck.enqueue(new card_parent(1, "c"));
-        main_deck.enqueue(new card_parent(1, "d"));
-        main_deck.enqueue(new card_parent(1, "e"));
+        main_deck.enqueue(new card_parent(2, "b"));
+        main_deck.enqueue(new card_parent(3, "c"));
+        main_deck.enqueue(new card_parent(4, "d"));
+        main_deck.enqueue(new card_parent(5, "e"));
+
+        main_deck.shuffle();
     }
 
     private void OnMouseDown()

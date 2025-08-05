@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor.PackageManager;
@@ -94,6 +95,38 @@ public class deck_script
             front = (front + 1) % capacity;
         }
         return elem;
+    }
+
+    public void shuffle()
+    {
+        // fischer yates shuffle
+        int rng;
+        int steps = size;
+        int array_end;
+        card_parent temp_value;
+        card_parent[] temp_deck = new card_parent[capacity];
+
+        for (int i = 0; i < steps; i++)
+        { 
+            temp_deck[i] = dequeue();
+        }
+
+        for (int i = 0; i < temp_deck.Count(); i++)
+        {
+            array_end = temp_deck.Count() - 1;
+            rng = Random.Range(0, array_end);
+
+            temp_value = temp_deck[array_end];
+            temp_deck[array_end] = temp_deck[rng];
+            temp_deck[rng] = temp_value;
+        }
+
+        for (int i = 0; i < temp_deck.Count(); i++)
+        { 
+            enqueue(temp_deck[i]);
+        }
+
+
     }
 
 

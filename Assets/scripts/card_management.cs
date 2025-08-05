@@ -29,6 +29,7 @@ public class card_management : MonoBehaviour
     {
         Vector3 spawn = transform.position;
 
+
         for (int i = 0; i < playing_area.card_spacing().Count(); i++)
         {
             card = playing_area.get_card(i);
