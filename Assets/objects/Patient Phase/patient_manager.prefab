@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7010277604745339868}
   - component: {fileID: 1181514950611801579}
+  - component: {fileID: 6688520217758583671}
   m_Layer: 0
-  m_Name: patient
+  m_Name: patient_manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,3 +88,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6688520217758583671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239320998278400003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bf3dd3989a65846a7ad200166aab4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
