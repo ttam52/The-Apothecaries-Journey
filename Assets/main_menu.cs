@@ -7,4 +7,10 @@ public class main_menu : MonoBehaviour
    {
     SceneManager.LoadScene("game_test");
    }
+
+   public void quit_game ()
+   {
+    Debug.Log("closing successful");
+    Application.Quit();  
+   }
 }
