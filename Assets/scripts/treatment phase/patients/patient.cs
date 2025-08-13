@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class patient
 {
+    GameObject patient_obj;
     bool condition_met = true;
     int healing_target;
-    Texture2D image;
+    Sprite image;
 
-    public patient(int h_value, Texture2D i_visual)
+    public patient(int h_value, Sprite i_visual)
     {
         healing_target = h_value;
         image = i_visual;
@@ -16,9 +17,13 @@ public class patient
     {
         return healing_target;
     }
-    public Texture2D get_image()
+    public Sprite get_image()
     {
         return image;
+    }
+    public GameObject get_patient_obj()
+    {
+        return patient_obj;
     }
 
     public void set_value(int h_value)
@@ -26,8 +31,13 @@ public class patient
         healing_target = h_value;
     }
 
-    public void set_image(Texture2D i_visual)
+    public void set_image(Sprite i_visual)
     {
         image = i_visual;
+    }
+
+    public void set_patient_obj(GameObject p_obj)
+    { 
+        patient_obj = p_obj;
     }
 }

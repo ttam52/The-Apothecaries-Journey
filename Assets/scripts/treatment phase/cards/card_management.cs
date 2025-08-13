@@ -9,25 +9,30 @@ public class card_management : MonoBehaviour
     public GameObject deck;
     
     card_sorter playing_area = new card_sorter(100, 10);
-    Score_display score_display;
+    score_manager score_display;
+    Vector3 card_spawn;
 
     private void Start()
     {
-        score_display = score_manager.GetComponent<Score_display>();
+        score_display = score_manager.GetComponent<score_manager>();
+        card_spawn = transform.position;
+        card_spawn.x = -5;
+        card_spawn.y = -3.5f;
     }
 
-    public void card_drawn(card_parent card)
+    public void card_drawn(card temp)
     {
-        playing_area.add(card);
-        score_display.Add(card.get_value());
+        playing_area.add(temp);
+        score_display.Add(temp.get_value());
 
         clear_playing_area();
-        set_playing_area(card);
+        set_playing_area(temp);
     }
 
-    public void set_playing_area(card_parent card)
+    public void set_playing_area(card card)
     {
-        Vector3 spawn = transform.position;
+        Vector3 spawn = card_spawn;
+
 
 
         for (int i = 0; i < playing_area.card_spacing().Count(); i++)
@@ -35,7 +40,7 @@ public class card_management : MonoBehaviour
             card = playing_area.get_card(i);
 
             float x_offset = playing_area.card_spacing()[i];
-            spawn.x = transform.position.x + x_offset;
+            spawn.x = card_spawn.x + x_offset;
 
             card.set_card_obj(Instantiate(card_obj, spawn, Quaternion.identity));
 
@@ -47,8 +52,8 @@ public class card_management : MonoBehaviour
         int card_total = playing_area.card_spacing().Count();
         for (int i = 0; i < card_total; i++)
         {
-            card_parent card = playing_area.get_card(i);
-            Destroy(card.get_card_obj());
+            card temp = playing_area.get_card(i);
+            Destroy(temp.get_card_obj());
         }
     }
 

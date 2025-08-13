@@ -18,7 +18,7 @@ public class score_tracker
         digits = score.ToString().Length;
     }
 
-    public void tally_score(card_parent[] played_cards)
+    public void tally_score(card[] played_cards)
     {
         score = 0;
         for (int i = 0; i < played_cards.Length; i++) 

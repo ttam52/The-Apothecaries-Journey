@@ -1,13 +1,13 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class card_parent
+public class card
 {
     GameObject card_obj;
     int healing_value = 0;
     string card_name = "";
 
-    public card_parent (int value, string name)
+    public card (int value, string name)
     {
         healing_value = value;
         card_name = name;
