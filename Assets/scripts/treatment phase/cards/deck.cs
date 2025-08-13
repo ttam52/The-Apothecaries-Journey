@@ -1,41 +1,42 @@
 using System.ComponentModel;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class deck_script
+public class deck
 {
     int front;
     int rear;
     int size;
     int capacity;
-    card_parent[] deck;
+    card[] arr;
 
-    public deck_script(int c) 
+    public deck(int c) 
     {
-        deck = new card_parent[c];
+        arr = new card[c];
         capacity = c;
         front = -1;
         rear = -1;
         size = 0;
     }
 
-    public card_parent get_front()
+    public card get_front()
     {
         if (size == 0)
         {
             return null;
         }
-        return deck[front];
+        return arr[front];
     }
-    public card_parent get_rear()
+    public card get_rear()
     {
         if (size == 0)
         {
             return null;
         }
-        return deck[rear];
+        return arr[rear];
     }
 
     public bool is_empty()
@@ -56,7 +57,7 @@ public class deck_script
         return false;
     }
 
-    public void enqueue(card_parent elem)
+    public void enqueue(card elem)
     {
 
         if (is_full() == true)
@@ -72,18 +73,18 @@ public class deck_script
             }
 
             rear = (rear + 1) % capacity;
-            deck[rear] = elem;
+            arr[rear] = elem;
             
         }
     }
-    public card_parent dequeue()
+    public card dequeue()
     {
         if (is_empty() == true)
         {
             return null;
         }
         size--;
-        card_parent elem = deck[front];
+        card elem = arr[front];
         if (front == rear)
         {
             front = -1;
@@ -94,6 +95,38 @@ public class deck_script
             front = (front + 1) % capacity;
         }
         return elem;
+    }
+
+    public void shuffle()
+    {
+        // fischer yates shuffle
+        int rng;
+        int steps = size;
+        int array_end;
+        card temp_value;
+        card[] temp_deck = new card[capacity];
+
+        for (int i = 0; i < steps; i++)
+        { 
+            temp_deck[i] = dequeue();
+        }
+
+        for (int i = 0; i < temp_deck.Count(); i++)
+        {
+            array_end = temp_deck.Count() - 1;
+            rng = Random.Range(0, array_end);
+
+            temp_value = temp_deck[array_end];
+            temp_deck[array_end] = temp_deck[rng];
+            temp_deck[rng] = temp_value;
+        }
+
+        for (int i = 0; i < temp_deck.Count(); i++)
+        { 
+            enqueue(temp_deck[i]);
+        }
+
+
     }
 
 

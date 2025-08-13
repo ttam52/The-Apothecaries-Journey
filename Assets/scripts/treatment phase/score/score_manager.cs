@@ -3,13 +3,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score_display : MonoBehaviour
+public class score_manager : MonoBehaviour
 {
+    public GameObject treatment_phase_manager;
     public TextMeshPro score_counter;
     private int score = 0;
 
-    private void Awake()
+    patient_management patient_script;
+
+    private void Start()
     {
+        patient_script = treatment_phase_manager.GetComponent<patient_management>();
         Update_display();
     }
 
@@ -35,5 +39,6 @@ public class Score_display : MonoBehaviour
     public void Update_display()
     {
         score_counter.text = score.ToString();
+        patient_script.set_healing_value(score);
     }
 }

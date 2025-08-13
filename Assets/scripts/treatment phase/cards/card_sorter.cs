@@ -5,22 +5,22 @@ public class card_sorter
 {
     int screen_space;
     int capacity;
-    card_parent[] display;
+    card[] display;
     int position = 0;
 
     public card_sorter(int c,int scr_sp)
     { 
         capacity = c;
-        display = new card_parent[capacity];
+        display = new card[capacity];
         screen_space = scr_sp;
     }
 
-    public card_parent get_card(int card_pos)
+    public card get_card(int card_pos)
     { 
         return display[card_pos];
     }
 
-    public void add(card_parent input)
+    public void add(card input)
     {
         if (position < capacity)
         {
