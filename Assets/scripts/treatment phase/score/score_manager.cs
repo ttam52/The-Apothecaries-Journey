@@ -27,18 +27,17 @@ public class score_manager : MonoBehaviour
         {
             score = value;
             Update_display();
+            patient_script.set_current_healing_value(score);
         }       
     }
-    public void Add(int value)
-    {
-        score += value;
-        Update_display();
-    }
 
+    public void reset()
+    {
+        score = 0;
+    }
 
     public void Update_display()
     {
         score_counter.text = score.ToString();
-        patient_script.set_healing_value(score);
     }
 }

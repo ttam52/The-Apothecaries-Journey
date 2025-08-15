@@ -5,38 +5,42 @@ public class patient_info : MonoBehaviour
 {
     public TextMeshPro info_display;
     private string text;
-    int healing_value;
+    int target_value;
     
 
-    private void Awake()
-    {
-        text =
-        "Target Healing Value: " + healing_value.ToString() + "\n" +
-        "#" + "\n" +
-        "#";
-        Update_display();
-    }
+    //private void Awake()
+    //{
+    //    text =
+    //    "Target Healing Value: " + target_value.ToString() + "\n" +
+    //    "#" + "\n" +
+    //    "#";
+    //}
 
-    public string Text
-    {
-        get
-        {
-            return text;
-        }
-        set
-        {
-            text = value;
-            Update_display();
-        }
-    }
-    public void set_healing_value(int score)
+    //public string Text
+    //{
+    //    get
+    //    {
+    //        return text;
+    //    }
+    //    set
+    //    {
+    //        text = value;
+    //        Update_display();
+    //    }
+    //}
+
+    public void set_target_value(int score)
     { 
-        healing_value = score;
+        target_value = score;
         Update_display();
     }
 
     public void Update_display()
     {
+        text =
+        "Target Healing Value: " + target_value.ToString() + "\n" +
+        "" + "\n" +
+        "";
         info_display.text = text;
     }
 

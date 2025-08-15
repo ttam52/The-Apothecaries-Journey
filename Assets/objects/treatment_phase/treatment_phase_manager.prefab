@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 308705055458932354}
   - component: {fileID: 529396398702059917}
   - component: {fileID: 8260613270228987231}
+  - component: {fileID: 7069486962119536044}
   m_Layer: 0
   m_Name: treatment_phase_manager
   m_TagString: Untagged
@@ -58,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9975091dfb8421d4682eac8ca004b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card_obj: {fileID: 0}
-  score_manager: {fileID: 0}
-  deck: {fileID: 0}
+  card_obj: {fileID: 4098763975536889711, guid: ef5f72b3f44219c48a39dd1a6333360b, type: 3}
+  score_manager: {fileID: 6775916976880748624, guid: 082cff3110cbbef4d8149af16d36e6db, type: 3}
+  deck: {fileID: 7638575097921380242, guid: 4b60ca7ac07c11b4f9756b003c796491, type: 3}
 --- !u!114 &8260613270228987231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +74,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bf3dd3989a65846a7ad200166aab4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patient_obj: {fileID: 0}
-  patient_info: {fileID: 0}
-  finish_treatment_button: {fileID: 0}
+  patient_obj: {fileID: 548362175029547501, guid: 154932c0c261a9946935898745bd0ad8, type: 3}
+  patient_info: {fileID: 2237284818155653262, guid: 56ae025d037fde7468cec00c06524007, type: 3}
+  finish_treatment_button: {fileID: 3712278491989132233, guid: 9957560536429244a924923d137eeb70, type: 3}
+--- !u!114 &7069486962119536044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213694460218465871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: e2ccff8813028374ca961d77149756ae, type: 3}

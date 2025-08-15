@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9993178686c9cc45930270790dd5d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treatment_phase_manager: {fileID: 8213694460218465871, guid: f1489747f89097e49aa0035149808dbb, type: 3}

@@ -23,7 +23,7 @@ public class card_management : MonoBehaviour
     public void card_drawn(card temp)
     {
         playing_area.add(temp);
-        score_display.Add(temp.get_value());
+        score_display.Score += temp.get_value();
 
         clear_playing_area();
         set_playing_area(temp);
@@ -57,9 +57,16 @@ public class card_management : MonoBehaviour
         }
     }
 
-    public void update_score()
-    { 
-        
+    public void reset_playing_area()
+    {
+        clear_playing_area();
+        playing_area.clear_display();
+        score_display.reset();
     }
+
+    //public void update_score()
+    //{ 
+        
+    //}
 
 }
