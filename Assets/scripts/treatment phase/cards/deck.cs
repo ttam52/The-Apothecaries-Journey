@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class deck
 {
+    int size;
     int front;
     int rear;
-    int size;
     int capacity;
     card[] arr;
 
@@ -21,7 +21,10 @@ public class deck
         rear = -1;
         size = 0;
     }
-
+    public int get_size()
+    {
+        return size;
+    }
     public card get_front()
     {
         if (size == 0)
@@ -101,8 +104,8 @@ public class deck
     {
         // fischer yates shuffle
         int rng;
-        int steps = size;
         int array_end;
+        int steps = size;
         card temp_value;
         card[] temp_deck = new card[capacity];
 
@@ -111,9 +114,9 @@ public class deck
             temp_deck[i] = dequeue();
         }
 
-        for (int i = 0; i < temp_deck.Count(); i++)
+        for (int i = 0; i < steps; i++)
         {
-            array_end = temp_deck.Count() - 1;
+            array_end = steps - 1;
             rng = Random.Range(0, array_end);
 
             temp_value = temp_deck[array_end];
@@ -121,7 +124,7 @@ public class deck
             temp_deck[rng] = temp_value;
         }
 
-        for (int i = 0; i < temp_deck.Count(); i++)
+        for (int i = 0; i < steps; i++)
         { 
             enqueue(temp_deck[i]);
         }

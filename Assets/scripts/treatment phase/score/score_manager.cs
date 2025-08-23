@@ -34,6 +34,7 @@ public class score_manager : MonoBehaviour
     public void reset()
     {
         score = 0;
+        Update_display();
     }
 
     public void Update_display()

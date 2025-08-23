@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 using UnityEngine.VFX;
@@ -47,6 +48,14 @@ public class patient_management : MonoBehaviour
         patient_info_script.set_target_value(value);
     }
 
+    private void clear_patient()
+    {
+        if (current_patient != null)
+        {
+            Destroy(current_patient.get_patient_obj());
+        }
+    }
+
     public void set_current_healing_value(int value)
     { 
         current_healing_value = value;
@@ -55,6 +64,7 @@ public class patient_management : MonoBehaviour
 
     public void start_treatment(patient temp_patient)
     {
+        clear_patient();
         current_patient = temp_patient;
         setup_patient();
         set_current_healing_value(0);

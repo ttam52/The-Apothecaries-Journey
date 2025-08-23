@@ -22,8 +22,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 4671084537118044904, guid: e69c273cafc6ef040a06ccdb40d74526, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 4671084537118044904, guid: e69c273cafc6ef040a06ccdb40d74526, type: 3}
+    - m_Name: snake
+      m_Hash: 292383646
+      m_Sprite: {fileID: 5978682126500639714, guid: 015a8358f39d59746a3bffd87e12e690, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5978682126500639714, guid: 015a8358f39d59746a3bffd87e12e690, type: 3}
     m_FromMain: 0
-    m_EntryOverrideCount: 1
+    m_EntryOverrideCount: 2
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638904129390091439
+  m_ModificationHash: 638909745561565724
   m_Version: 1

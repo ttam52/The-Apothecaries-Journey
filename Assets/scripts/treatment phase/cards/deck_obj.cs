@@ -8,31 +8,33 @@ using UnityEngine.Rendering;
 public class deck_obj : MonoBehaviour
 {
     public GameObject treatment_phase_manager;
-    deck main_deck = new deck(5);
+    public deck main_deck = new deck(100);
+    public deck discard_pile = new deck(100);
     card_management card_manager;
 
+    private void Awake()
+    {
+        main_deck = Player_data.player_deck;
+        main_deck.shuffle();
+    }
     void Start()
     {
         card_manager = treatment_phase_manager.GetComponent<card_management>();
-
-        main_deck.enqueue(new card(2, "a"));
-        main_deck.enqueue(new card(2, "b"));
-        main_deck.enqueue(new card(2, "c"));
-        main_deck.enqueue(new card(2, "d"));
-        main_deck.enqueue(new card(2, "e"));
-
-        main_deck.shuffle();
     }
 
     private void OnMouseDown()
     {
-        //card temp_card = draw_card();
-        //if (temp_card != null)
-        //{
-        //    card_manager.card_drawn(temp_card);
-        //}
-        card_manager.card_drawn(new card(2, "test"));
+        card temp_card = draw_card();
         
+        if (temp_card != null)
+        {
+            discard_pile.enqueue(temp_card);
+            card_manager.card_drawn(temp_card);
+        }
+        else 
+        {
+            print("null");
+        }
     }
 
     public card draw_card()
@@ -44,6 +46,22 @@ public class deck_obj : MonoBehaviour
 
         print("empty deck draw attempt");
         return null;
+    }
+
+    public void reshuffle_played_cards()
+    {
+        int steps = discard_pile.get_size();
+        for (int i = 0; i < steps; i++)
+        {
+            main_deck.enqueue(discard_pile.dequeue());
+        }
+        main_deck.shuffle();
+        pack_player_deck();
+    }
+
+    public void pack_player_deck()
+    { 
+        Player_data.player_deck = main_deck;
     }
 
 }

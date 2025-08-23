@@ -7,13 +7,15 @@ public class card_management : MonoBehaviour
     public GameObject card_obj;
     public GameObject score_manager;
     public GameObject deck;
-    
+
+    deck_obj deck_script;
     card_sorter playing_area = new card_sorter(100, 10);
     score_manager score_display;
     Vector3 card_spawn;
 
     private void Start()
     {
+        deck_script = deck.GetComponent<deck_obj>();
         score_display = score_manager.GetComponent<score_manager>();
         card_spawn = transform.position;
         card_spawn.x = -5;
@@ -60,6 +62,7 @@ public class card_management : MonoBehaviour
     public void reset_playing_area()
     {
         clear_playing_area();
+        deck_script.reshuffle_played_cards();
         playing_area.clear_display();
         score_display.reset();
     }
