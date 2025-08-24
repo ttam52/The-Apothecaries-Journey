@@ -7,22 +7,24 @@ using UnityEngine.Rendering;
 
 public class Deck_obj : MonoBehaviour
 {
-    public GameObject treatment_phase_manager, deck_info_obj;
+    public GameObject treatment_phase_manager, deck_stock_obj, deck_size_obj;
     public deck main_deck = new deck(100);
     public deck discard_pile = new deck(100);
 
     card_management card_manager;
-    Display_text deck_info;
-    int total_cards;
+    Display_text deck_stock, deck_size;
+    int stock;
 
     private void Awake()
     {
         card_manager = treatment_phase_manager.GetComponent<card_management>();
-        deck_info = deck_info_obj.GetComponent<Display_text>();
+        deck_stock = deck_stock_obj.GetComponent<Display_text>();
+        deck_size = deck_size_obj.GetComponent<Display_text>();
 
         main_deck = Player_data.player_deck;
-        total_cards = main_deck.get_size();
         main_deck.shuffle();
+
+        stock = game_data.stock;
     }
     void Start()
     {
@@ -33,8 +35,10 @@ public class Deck_obj : MonoBehaviour
     {
         card temp_card = draw_card();
         
-        if (temp_card != null)
+        if (can_draw_card(temp_card))
         {
+            stock--;
+
             discard_pile.enqueue(temp_card);
             card_manager.card_drawn(temp_card);
             update_number_of_cards();
@@ -42,6 +46,7 @@ public class Deck_obj : MonoBehaviour
         else 
         {
             print("null");
+            print("stock: " + stock.ToString());
         }
     }
 
@@ -75,7 +80,23 @@ public class Deck_obj : MonoBehaviour
 
     private void update_number_of_cards()
     {
-        deck_info.Text = main_deck.get_size().ToString() + "/" + total_cards.ToString();
+        deck_stock.Text = stock.ToString();
+        deck_size.Text = main_deck.get_size().ToString();
     }
+    private bool can_draw_card(card drawn_card)
+    {
+        if (stock <= 0)
+        {
+            print("no stock");
+            return false;
+        }
 
+        if (drawn_card == null)
+        {
+            print("null card drawn");
+            return false;
+        }
+
+        return true;
+    }
 }

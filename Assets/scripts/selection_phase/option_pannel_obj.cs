@@ -6,28 +6,34 @@ public class Option_pannel_obj : MonoBehaviour
 {
     public GameObject info_display;
     patient[] patient_queue;
+    Display_text info_display_script;
+    int stock;
 
-    Option_pannel_info info_display_script;
-    
     private void Awake()
     {
-        info_display_script = info_display.GetComponent<Option_pannel_info>();
+        info_display_script = info_display.GetComponent<Display_text>();
     }
 
     public void set_patient_queue(patient[] temp_queue)
     {
         patient_queue = temp_queue;
-        info_display_script.set_number_of_patients(patient_queue.Length);
+        stock = patient_queue.Length * 6;
+
+        info_display_script.Text =
+        "patients: " + patient_queue.Length.ToString() + "\n"
+      + "stock: " + stock.ToString();
     }
+
+    //public void set_stock(int value)
+    //{ 
+    //    stock = value;
+    //}
 
     private void OnMouseDown()
     {
         game_data.patient_queue = patient_queue;
+        game_data.stock = stock;
         SceneManager.LoadScene("treatment_phase");
     }
 
-    private void update_info()
-    { 
-        
-    }
 }
