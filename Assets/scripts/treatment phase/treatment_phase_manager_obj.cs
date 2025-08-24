@@ -9,24 +9,23 @@ public class treatment_phase_manager_obj : MonoBehaviour
     card_management cards;
     SpriteLibrary patient_sprites;
 
-    int position_in_queue = 0;
+    int position_in_queue;
 
     void Start()
     {
+        position_in_queue = 0;
         patients = GetComponent<patient_management>();
         cards = GetComponent<card_management>();
         patient_sprites = GetComponent<SpriteLibrary>();
 
         patient_queue = game_data.patient_queue;
-
-
         treat_next_patient();
     }
-    public void initiate_patients(patient[] patients)
-    {
-        patient_queue = patients;
-        treat_next_patient();
-    }
+    //public void initiate_patients(patient[] patients)
+    //{
+    //    patient_queue = patients;
+    //    treat_next_patient();
+    //}
 
     public void treat_next_patient()
     {
@@ -49,7 +48,6 @@ public class treatment_phase_manager_obj : MonoBehaviour
         {
             cards.reset_playing_area();
             finish_treatment_phase();
-            SceneManager.LoadScene("selection_phase");
         }
         else
         {
@@ -60,9 +58,7 @@ public class treatment_phase_manager_obj : MonoBehaviour
 
     private void finish_treatment_phase()
     {
-
+        SceneManager.LoadScene("selection_phase");
     }
-        
-       
 
 }

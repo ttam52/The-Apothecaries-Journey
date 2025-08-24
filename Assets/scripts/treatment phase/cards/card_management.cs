@@ -8,14 +8,14 @@ public class card_management : MonoBehaviour
     public GameObject score_manager;
     public GameObject deck;
 
-    deck_obj deck_script;
+    Deck_obj deck_script;
     card_sorter playing_area = new card_sorter(100, 10);
     score_manager score_display;
     Vector3 card_spawn;
 
     private void Start()
     {
-        deck_script = deck.GetComponent<deck_obj>();
+        deck_script = deck.GetComponent<Deck_obj>();
         score_display = score_manager.GetComponent<score_manager>();
         card_spawn = transform.position;
         card_spawn.x = -5;
