@@ -45,7 +45,6 @@ public class card_management : MonoBehaviour
             spawn.x = card_spawn.x + x_offset;
 
             card.set_card_obj(Instantiate(card_obj, spawn, Quaternion.identity));
-
         }
     }
 
