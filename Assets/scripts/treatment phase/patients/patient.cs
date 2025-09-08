@@ -13,7 +13,7 @@ public class patient
         image = i_visual;
     }
 
-    public int get_value()
+    public int get_healing_target()
     {
         return healing_target;
     }
@@ -26,7 +26,7 @@ public class patient
         return patient_obj;
     }
 
-    public void set_value(int h_value)
+    public void set_healing_target(int h_value)
     {
         healing_target = h_value;
     }

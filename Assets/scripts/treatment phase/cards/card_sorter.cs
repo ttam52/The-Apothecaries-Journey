@@ -31,7 +31,11 @@ public class card_sorter
 
     public void clear_display()
     {
-        display = null;
+        for (int i = 0; i < position; i++)
+        {
+            display[i] = null;
+        }
+        position = 0;
     }
 
     public float[] card_spacing()

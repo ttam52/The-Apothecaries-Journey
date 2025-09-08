@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class finish_treatment_button_obj : MonoBehaviour
 {
+    public GameObject treatment_phase_manager;
+
+    treatment_phase_manager_obj treatment_phase_manager_script;
     SpriteRenderer sprite;
     bool is_healed;
+
     private void Awake()
     {
+        treatment_phase_manager_script = treatment_phase_manager.GetComponent<treatment_phase_manager_obj>();
         sprite = GetComponent<SpriteRenderer>();
+        update_colour(false);
     }
+    
     private void OnMouseDown()
     {
-        if (is_healed == true)
-        { 
-            
-        }
+        treatment_phase_manager_script.treatment_finished(is_healed);
     }
 
     private void update_colour(bool is_healed)
@@ -24,7 +28,7 @@ public class finish_treatment_button_obj : MonoBehaviour
         }
         else 
         { 
-            sprite.color= Color.red;
+            sprite.color = Color.red;
         }
     }
 
