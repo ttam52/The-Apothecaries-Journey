@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,12 +6,16 @@ using UnityEngine.EventSystems;
 public class purchaseable_card : card_obj
 {
     [SerializeField] GameObject button_obj, price_tag_obj;
-    GameObject yes_button, price_tag;
+    GameObject shop_manager, yes_button, price_tag;
 
+    Shop_phase_manager shop_manager_script;
     Button_obj yes_button_script;
     Display_text price_tag_script;
 
-    private void Start() 
+    card my_card;
+    int price;
+
+    new private void Start() 
     {
         base.Start();
         create_button();
@@ -40,16 +45,43 @@ public class purchaseable_card : card_obj
         price_tag = Instantiate(price_tag_obj, spawn, Quaternion.identity);
         price_tag_script = price_tag.GetComponent<Display_text>();
 
-        price_tag_script.Text = "$2";
+        price_tag_script.Text = price.ToString();
     }
 
     public void recieve_button_press(bool button_type)
     {
         if (button_type == true)
         {
-            
+            attempt_purchase();            
+        }
+    }
+
+    private void attempt_purchase()
+    {
+        if (Player_data.money >= price)
+        {
+            Player_data.player_deck.enqueue(my_card);
+            Player_data.money -= price;
+            shop_manager_script.card_bought();
             Destroy();
         }
+        else
+        {
+            print("poor");
+        }
+    }
+
+
+    public void link_to_shop_manager(GameObject temp_manager)
+    {
+        shop_manager = temp_manager;
+        shop_manager_script = shop_manager.GetComponent<Shop_phase_manager>();
+    }
+
+    public void setup_card(card temp_card, int temp_price)
+    {
+        my_card = temp_card;
+        price = temp_price;
     }
 
     new public void Destroy()

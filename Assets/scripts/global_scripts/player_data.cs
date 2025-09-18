@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class Player_data
 {
-    public static int reputation = 0;
+    public static int reputation = 5;
     public static int money = 0;
     public static deck player_deck = new deck(100);
 

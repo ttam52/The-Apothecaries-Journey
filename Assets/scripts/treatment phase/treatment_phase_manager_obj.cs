@@ -7,6 +7,7 @@ public class treatment_phase_manager_obj : MonoBehaviour
     patient[] patient_queue = new patient[3];
     patient_management patients;
     card_management cards;
+    player_stats_manager player_stats;
     SpriteLibrary patient_sprites;
 
     int position_in_queue;
@@ -16,6 +17,7 @@ public class treatment_phase_manager_obj : MonoBehaviour
         position_in_queue = 0;
         patients = GetComponent<patient_management>();
         cards = GetComponent<card_management>();
+        player_stats = GetComponent<player_stats_manager>();
         patient_sprites = GetComponent<SpriteLibrary>();
 
         patient_queue = game_data.patient_queue;
@@ -36,14 +38,17 @@ public class treatment_phase_manager_obj : MonoBehaviour
 
     public void treatment_finished(bool success)
     {
-        //if (success == true)
-        //{
+        if (success == true)
+        {
+            Player_data.money += 2;
+            Player_data.reputation += 1;
+        }
+        else
+        {
+            Player_data.reputation -= 1;
+        }
+        player_stats.update_display();
 
-        //}
-        //else
-        //{
-
-        //}
         if (position_in_queue == patient_queue.Length)
         {
             cards.reset_playing_area();
@@ -58,7 +63,7 @@ public class treatment_phase_manager_obj : MonoBehaviour
 
     private void finish_treatment_phase()
     {
-        SceneManager.LoadScene("selection_phase");
+        SceneManager.LoadScene("shop_phase");
     }
 
 }
