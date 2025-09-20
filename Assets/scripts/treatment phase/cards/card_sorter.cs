@@ -1,26 +1,26 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-public class card_sorter
+public class Card_sorter
 {
     int screen_space;
     int capacity;
-    card[] display;
+    Card[] display;
     int position = 0;
 
-    public card_sorter(int c,int scr_sp)
+    public Card_sorter(int c,int scr_sp)
     { 
         capacity = c;
-        display = new card[capacity];
+        display = new Card[capacity];
         screen_space = scr_sp;
     }
 
-    public card get_card(int card_pos)
+    public Card Get_card(int card_pos)
     { 
         return display[card_pos];
     }
 
-    public void add(card input)
+    public void Add(Card input)
     {
         if (position < capacity)
         {
@@ -29,7 +29,7 @@ public class card_sorter
         }
     }
 
-    public void clear_display()
+    public void Clear_display()
     {
         for (int i = 0; i < position; i++)
         {
@@ -38,7 +38,7 @@ public class card_sorter
         position = 0;
     }
 
-    public float[] card_spacing()
+    public float[] Card_spacing()
     {
         float steps = (position + 1);
         float current_spacing = screen_space / steps;
@@ -51,7 +51,25 @@ public class card_sorter
         return x_coords;
     }
 
+    public int Tally_score()
+    {
+        Card card;
+        int score = 0;
+        for (int i = 0; i < position; i++)
+        {
+            card = display[i];
+            if (card.Has_effect() == true)
+            {
+                score += card.Trigger_effect(display, position);
+            }
+            else
+            {
+                score += card.Get_value();
+            }
+        }
 
-    // x_coords[i] = ((current_spacing * (i+1)) - screen_space)/2;
+        return score;
+    }
+    
 
 }

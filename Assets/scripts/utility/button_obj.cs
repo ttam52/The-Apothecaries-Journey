@@ -12,7 +12,7 @@ public class Button_obj : MonoBehaviour
         my_sprite = GetComponent<SpriteRenderer>();
         my_sprite.enabled = false;
     }
-    public void initialize(Color chosen_colour, bool button_type, GameObject controller)
+    public void Initialize(Color chosen_colour, bool button_type, GameObject controller)
     {
         my_sprite.color = chosen_colour;
         choice = button_type;
@@ -21,7 +21,7 @@ public class Button_obj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        creator.GetComponent<purchaseable_card>().recieve_button_press(choice);
+        creator.GetComponent<Purchaseable_card>().Recieve_button_press(choice);
     }
 
     public void Destroy()
@@ -29,7 +29,7 @@ public class Button_obj : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void set_visibility(bool visible)
+    public void Set_visibility(bool visible)
     {
         my_sprite.enabled = visible;
     }

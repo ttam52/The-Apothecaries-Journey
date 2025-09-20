@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class next_phase_button_obj : MonoBehaviour
+public class Next_phase_button_obj : MonoBehaviour
 {
     private void OnMouseDown()
     {

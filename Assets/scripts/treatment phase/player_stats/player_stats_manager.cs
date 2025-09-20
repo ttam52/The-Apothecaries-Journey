@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class player_stats_manager : MonoBehaviour
+public class Player_stats_manager : MonoBehaviour
 {
     public GameObject money_display, reputation_display;
     Display_text money_display_script, reputation_display_script;
@@ -13,10 +13,10 @@ public class player_stats_manager : MonoBehaviour
         money_display_script = money_display.GetComponent<Display_text>();
         reputation_display_script = reputation_display.GetComponent<Display_text>();
 
-        update_display();
+        Update_display();
     }
 
-    public void update_display()
+    public void Update_display()
     {
         money = Player_data.money;
         reputation = Player_data.reputation;

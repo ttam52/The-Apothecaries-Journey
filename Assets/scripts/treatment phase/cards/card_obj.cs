@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class card_obj : MonoBehaviour
+public class Card_obj : MonoBehaviour
 {
     [SerializeField] GameObject description_obj;
     protected GameObject my_description;
@@ -14,15 +14,15 @@ public class card_obj : MonoBehaviour
 
     protected void Start()
     {
-        create_description_obj();        
+        Create_description_obj();        
     }
     protected void OnMouseEnter()
     {
-        my_description_script.set_visibility(true);
+        my_description_script.Set_visibility(true);
     }
     protected void OnMouseExit()
     {
-        my_description_script.set_visibility(false);
+        my_description_script.Set_visibility(false);
     }
     public void Destroy()
     {
@@ -30,13 +30,13 @@ public class card_obj : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected void create_description_obj()
+    protected void Create_description_obj()
     {
         Vector3 spawn = transform.position;
-        spawn.y += 0.5f;
+        spawn.y += 1.5f;
         my_description = Instantiate(description_obj, spawn, Quaternion.identity);
         my_description_script = my_description.GetComponent<Display_text>();
-        my_description_script.set_visibility(false);
+        my_description_script.Set_visibility(false);
 
         my_description_script.Text = description;
         
