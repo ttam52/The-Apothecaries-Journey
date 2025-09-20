@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Spice_tally_card : Card
+public class Herb_witch_orchid : Card
 {
-    public Spice_tally_card(int value, string name, string desc) : base(value, name, desc)
+    public Herb_witch_orchid(int value, string name, string desc) : base(value, name, desc)
     {
         card_type = 'H';
         has_effect = true;
@@ -14,13 +14,19 @@ public class Spice_tally_card : Card
         Card card;
 
         for (int i = 0; i < total_cards; i++)
-        { 
+        {
             card = cards_in_play[i];
             if (card.card_type == 'H')
             {
                 tally++;
             }
         }
-        return tally + healing_value;
+
+        if (tally == 3)
+        {
+            return 2 + healing_value;
+        }
+
+        return healing_value;
     }
 }

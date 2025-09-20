@@ -20,6 +20,9 @@ public class Card
     {
         return 0;
     }
+    protected virtual void Card_drawn()
+    { 
+    }
 
     public virtual int Get_value()
     {
@@ -39,10 +42,11 @@ public class Card
         return description;
     }
 
-    public void Set_card_obj(GameObject obj)
+    public virtual void Set_card_obj(GameObject obj)
     {
         card_obj = obj;
         card_obj.GetComponent<Card_obj>().description = card_name + "\n" + description;
+        Card_drawn();
     }
     public GameObject Get_card_obj()
     {
