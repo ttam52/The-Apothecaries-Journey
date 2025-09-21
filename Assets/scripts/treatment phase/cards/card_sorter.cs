@@ -20,6 +20,11 @@ public class Card_sorter
         return display[card_pos];
     }
 
+    public int Get_position()
+    { 
+        return position;
+    }
+
     public void Add(Card input)
     {
         if (position < capacity)
@@ -70,6 +75,11 @@ public class Card_sorter
 
         return score;
     }
-    
 
+    public void swap_cards(int pos1, int pos2)
+    {
+        Card temp_card = display[pos1];
+        display[pos1] = display[pos2];
+        display[pos2] = temp_card;
+    }
 }

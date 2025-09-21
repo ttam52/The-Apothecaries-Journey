@@ -21,6 +21,7 @@ public class Patient_management : MonoBehaviour
     void Start()
     {
         spawn = gameObject.transform.position;
+        spawn.z = -1;
 
         finish_treatment_button_script = finish_treatment_button.GetComponent<Finish_treatment_button_obj>();
         patient_info_script = patient_info.GetComponent<Patient_info>();
@@ -32,6 +33,7 @@ public class Patient_management : MonoBehaviour
         current_patient.Set_patient_obj(temp_patient); // uncertain of whether having the patient script hold the game object is neccecary
 
         temp_patient.GetComponent<Patient_obj>().Set_sprite(current_patient.Get_image());
+        
     }
     public bool Is_healed()
     {
@@ -70,17 +72,5 @@ public class Patient_management : MonoBehaviour
         Set_current_healing_value(0);
         Update_patient_info();
     }
-
-    //public void finish_treatment()
-    //{
-    //    if (healing_value >= current_patient.get_healing_target())
-    //    {
-    //        //success
-    //    }
-    //    else
-    //    { 
-    //        //fail
-    //    }
-    //}
 
 }

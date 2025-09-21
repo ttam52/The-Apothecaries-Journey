@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 015a8358f39d59746a3bffd87e12e690
+guid: 0cec4ebbf8f7f3c4cb71770650c63c29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5978682126500639714
-    second: snake_patient_0
+      213: -7243399722446068639
+    second: hives_0
+  - first:
+      213: -326055411257540646
+    second: hives_1
+  - first:
+      213: 8782736627141621668
+    second: hives_2
+  - first:
+      213: 3280750594084768751
+    second: hives_3
+  - first:
+      213: 4530518311130157182
+    second: hives_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snake_patient_0
+      name: hives_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 323
-        height: 745
+        x: 788
+        y: 1062
+        width: 54
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e33c07b7bb88f250800000000000000
-      internalID: 5978682126500639714
+      spriteID: 164607164564a7b90800000000000000
+      internalID: -7243399722446068639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hives_1
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 200
+        width: 723
+        height: 1118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf76eab45e997bf0800000000000000
+      internalID: -326055411257540646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hives_2
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 548
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7b690fd6c82e970800000000000000
+      internalID: 8782736627141621668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hives_3
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 555
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb031d7841978d20800000000000000
+      internalID: 3280750594084768751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hives_4
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 510
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70d0577662afde30800000000000000
+      internalID: 4530518311130157182
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      snake_patient_0: 5978682126500639714
+      hives_0: -7243399722446068639
+      hives_1: -326055411257540646
+      hives_2: 8782736627141621668
+      hives_3: 3280750594084768751
+      hives_4: 4530518311130157182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

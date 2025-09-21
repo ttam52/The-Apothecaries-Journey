@@ -19,11 +19,11 @@ public static class Player_data
         //player_deck.Enqueue(new Herb_leaf(1, "leaf - 1", "does nothing"));
         //player_deck.Enqueue(new Spice_tally(0, "tally - 0", "score 1 for every herb in play"));
 
-        //player_deck.Enqueue(new Herb_leaf(1, "leaf - 1", "does nothing"));
-        //player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
-        //player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
-        //player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
-        //player_deck.Enqueue(new Spice_tally(0, "tally - 0", "score 1 for each herb in play"));
+        player_deck.Enqueue(new Herb_leaf(1, "leaf - 1", "does nothing"));
+        player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
+        player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
+        player_deck.Enqueue(new Herb_snowchime(0, "snowchime - 0", "gives 2 bonus points if the recipe contains no spices"));
+
 
         //player_deck.Enqueue(new Herb_leaf(1, "leaf - 1", "does nothing"));
         //player_deck.Enqueue(new Herb_leaf(1, "leaf - 1", "does nothing"));

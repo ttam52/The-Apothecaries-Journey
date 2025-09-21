@@ -52,5 +52,9 @@ public class Card
     {
         return card_obj;
     }
+    public Card_obj Get_card_obj_script()
+    { 
+        return card_obj.GetComponent<Card_obj>();
+    }
 
 }
