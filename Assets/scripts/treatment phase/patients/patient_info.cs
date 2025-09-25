@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class patient_info : MonoBehaviour
+public class Patient_info : MonoBehaviour
 {
     public TextMeshPro info_display;
     private string text;
@@ -29,7 +29,7 @@ public class patient_info : MonoBehaviour
     //    }
     //}
 
-    public void set_target_value(int score)
+    public void Set_target_value(int score)
     { 
         target_value = score;
         Update_display();

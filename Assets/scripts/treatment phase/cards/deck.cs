@@ -5,27 +5,27 @@ using Unity.VisualScripting.FullSerializer;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class deck
+public class Deck
 {
     int size;
     int front;
     int rear;
     int capacity;
-    card[] arr;
+    Card[] arr;
 
-    public deck(int c) 
+    public Deck(int c) 
     {
-        arr = new card[c];
+        arr = new Card[c];
         capacity = c;
         front = -1;
         rear = -1;
         size = 0;
     }
-    public int get_size()
+    public int Get_size()
     {
         return size;
     }
-    public card get_front()
+    public Card Get_front()
     {
         if (size == 0)
         {
@@ -33,7 +33,7 @@ public class deck
         }
         return arr[front];
     }
-    public card get_rear()
+    public Card Get_rear()
     {
         if (size == 0)
         {
@@ -42,7 +42,7 @@ public class deck
         return arr[rear];
     }
 
-    public bool is_empty()
+    public bool Is_empty()
     {
         if (front == -1)
         {
@@ -51,7 +51,7 @@ public class deck
         return false;
     }
 
-    public bool is_full()
+    public bool Is_full()
     {
         if (front == (rear + 1) % capacity)
         {
@@ -60,10 +60,10 @@ public class deck
         return false;
     }
 
-    public void enqueue(card elem)
+    public void Enqueue(Card elem)
     {
 
-        if (is_full() == true)
+        if (Is_full() == true)
         {
 
         }
@@ -80,14 +80,14 @@ public class deck
             
         }
     }
-    public card dequeue()
+    public Card Dequeue()
     {
-        if (is_empty() == true)
+        if (Is_empty() == true)
         {
             return null;
         }
         size--;
-        card elem = arr[front];
+        Card elem = arr[front];
         if (front == rear)
         {
             front = -1;
@@ -100,18 +100,18 @@ public class deck
         return elem;
     }
 
-    public void shuffle()
+    public void Shuffle()
     {
         // fischer yates shuffle
         int rng;
         int array_end;
         int steps = size;
-        card temp_value;
-        card[] temp_deck = new card[capacity];
+        Card temp_value;
+        Card[] temp_deck = new Card[capacity];
 
         for (int i = 0; i < steps; i++)
         { 
-            temp_deck[i] = dequeue();
+            temp_deck[i] = Dequeue();
         }
 
         for (int i = 0; i < steps; i++)
@@ -126,7 +126,7 @@ public class deck
 
         for (int i = 0; i < steps; i++)
         { 
-            enqueue(temp_deck[i]);
+            Enqueue(temp_deck[i]);
         }
 
 

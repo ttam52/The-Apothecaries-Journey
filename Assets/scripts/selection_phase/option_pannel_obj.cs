@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Option_pannel_obj : MonoBehaviour
 {
     public GameObject info_display;
-    patient[] patient_queue;
+    Patient[] patient_queue;
     Display_text info_display_script;
     int stock;
 
@@ -14,7 +14,7 @@ public class Option_pannel_obj : MonoBehaviour
         info_display_script = info_display.GetComponent<Display_text>();
     }
 
-    public void set_patient_queue(patient[] temp_queue)
+    public void Set_patient_queue(Patient[] temp_queue)
     {
         patient_queue = temp_queue;
         stock = patient_queue.Length * 6;
@@ -31,8 +31,8 @@ public class Option_pannel_obj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        game_data.patient_queue = patient_queue;
-        game_data.stock = stock;
+        Game_data.patient_queue = patient_queue;
+        Game_data.stock = stock;
         SceneManager.LoadScene("treatment_phase");
     }
 

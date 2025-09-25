@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class patient_obj : MonoBehaviour
+public class Patient_obj : MonoBehaviour
 {
     SpriteRenderer visual;
 
@@ -9,7 +9,7 @@ public class patient_obj : MonoBehaviour
         visual = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void set_sprite(Sprite sprite)
+    public void Set_sprite(Sprite sprite)
     { 
         visual.sprite = sprite;
     }

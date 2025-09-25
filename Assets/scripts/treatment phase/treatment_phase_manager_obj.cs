@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D.Animation;
 
-public class treatment_phase_manager_obj : MonoBehaviour
+public class Treatment_phase_manager_obj : MonoBehaviour
 {
-    patient[] patient_queue = new patient[3];
-    patient_management patients;
-    card_management cards;
+    Patient[] patient_queue = new Patient[3];
+    Patient_management patients;
+    Card_management cards;
+    Player_stats_manager player_stats;
     SpriteLibrary patient_sprites;
 
     int position_in_queue;
@@ -14,12 +15,13 @@ public class treatment_phase_manager_obj : MonoBehaviour
     void Start()
     {
         position_in_queue = 0;
-        patients = GetComponent<patient_management>();
-        cards = GetComponent<card_management>();
+        patients = GetComponent<Patient_management>();
+        cards = GetComponent<Card_management>();
+        player_stats = GetComponent<Player_stats_manager>();
         patient_sprites = GetComponent<SpriteLibrary>();
 
-        patient_queue = game_data.patient_queue;
-        treat_next_patient();
+        patient_queue = Game_data.patient_queue;
+        Treat_next_patient();
     }
     //public void initiate_patients(patient[] patients)
     //{
@@ -27,38 +29,41 @@ public class treatment_phase_manager_obj : MonoBehaviour
     //    treat_next_patient();
     //}
 
-    public void treat_next_patient()
+    public void Treat_next_patient()
     {
-        cards.reset_playing_area();
-        patients.start_treatment(patient_queue[position_in_queue]);
+        cards.Reset_playing_area();
+        patients.Start_treatment(patient_queue[position_in_queue]);
         position_in_queue++;
     }
 
-    public void treatment_finished(bool success)
+    public void Treatment_finished(bool success)
     {
-        //if (success == true)
-        //{
-
-        //}
-        //else
-        //{
-
-        //}
-        if (position_in_queue == patient_queue.Length)
+        if (success == true)
         {
-            cards.reset_playing_area();
-            finish_treatment_phase();
+            Player_data.money += 2;
+            Player_data.reputation += 1;
         }
         else
         {
-            treat_next_patient();
+            Player_data.reputation -= 1;
+        }
+        player_stats.Update_display();
+
+        if (position_in_queue == patient_queue.Length)
+        {
+            cards.Reset_playing_area();
+            Finish_treatment_phase();
+        }
+        else
+        {
+            Treat_next_patient();
         }
 
     }
 
-    private void finish_treatment_phase()
+    private void Finish_treatment_phase()
     {
-        SceneManager.LoadScene("selection_phase");
+        SceneManager.LoadScene("shop_phase");
     }
 
 }

@@ -24,12 +24,12 @@ public class Display_text : MonoBehaviour
         info_display.text = text;
     }
 
-    public void set_colour(Color colour)
+    public void Set_colour(Color colour)
     {
         info_display.color = colour;
     }
 
-    public void set_visibility(bool visibility)
+    public void Set_visibility(bool visibility)
     {
         info_display.enabled = visibility;
     }
